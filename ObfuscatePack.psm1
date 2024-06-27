@@ -11,7 +11,10 @@ function Obfuscate_Pack {
         [string]$Keyword,
 
         [Parameter(Mandatory=$true)]
-        [string]$ZipName
+        [string]$ZipName,
+
+        [Parameter(Mandatory=$false)]
+        [switch]$Delete
     )
 
     function Write-PositiveOutput {
@@ -22,6 +25,11 @@ function Obfuscate_Pack {
     function Write-NegativeOutput {
         param ([string]$message)
         Write-Host $message -BackgroundColor Black -ForegroundColor Red
+    }
+
+    function Write-WarningOutput {
+        param ([string]$message)
+        Write-Host $message -BackgroundColor Black -ForegroundColor Yellow
     }
 
     # Validate the directory
@@ -49,6 +57,18 @@ function Obfuscate_Pack {
     # Display the collected files
     Write-PositiveOutput "Collected files:"
     $files | ForEach-Object { Write-PositiveOutput $_.FullName }
+
+    # Handle delete confirmation
+    if ($Delete) {
+        Write-WarningOutput "Are you sure you want to delete the following files?"
+        $files | ForEach-Object { Write-WarningOutput $_.FullName }
+        
+        $confirmation = Read-Host "Type 'Yes' or 'Y' to confirm, anything else to cancel"
+        if ($confirmation -notmatch '^(Yes|Y)$') {
+            Write-NegativeOutput "Operation cancelled by the user."
+            return
+        }
+    }
 
     # Create a temporary directory for obfuscated files
     try {
@@ -88,6 +108,25 @@ function Obfuscate_Pack {
     }
 
     Write-PositiveOutput "Files have been obfuscated and zipped into '$ZipName'."
+
+    # Delete the original files if confirmed
+    if ($Delete) {
+        $deletedFiles = @()
+        foreach ($file in $files) {
+            try {
+                Remove-Item -Path $file.FullName -Force
+                $deletedFiles += $file.FullName
+            } catch {
+                Write-NegativeOutput "Error deleting file '$($file.FullName)': $_"
+            }
+        }
+
+        # Display deleted files
+        if ($deletedFiles.Count -gt 0) {
+            Write-PositiveOutput "Deleted files:"
+            $deletedFiles | ForEach-Object { Write-PositiveOutput $_ }
+        }
+    }
 }
 
 # Export the function as a cmdlet
