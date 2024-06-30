@@ -1,4 +1,5 @@
-#About Lab Tools
+#About Lab Tools#
+
 This repo is designed to be a swiss army knife for all lab needs when dealing in offensive security,
 for the sake of testing defense systems for proper alert/prevention engineering rules, and overall technical 
 product testing to really trigger alerts in great systems accross windows based environments.
@@ -18,7 +19,7 @@ it's use case oriented, and was developed in the wild and on the run while testi
 lab settings to trigger alerts accross Early Availability Cortex Products.
 
 
-* Current Contributors
+#Current Contributors#
   Jon David
     
 
