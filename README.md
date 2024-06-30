@@ -21,7 +21,7 @@ lab settings to trigger alerts accross Early Availability Cortex Products.
 
 # Current Contributors
 **Jon David**
-- [Githhub](https://github.com/Jonathan-D-a-v-i-d)
+- [Github](https://github.com/Jonathan-D-a-v-i-d)
 - [Medium](https://jonathan-david.medium.com/about)
 - [LinkedIn](https://linkedin.com/in/j-o-n-d-a-v-i-d)
     
