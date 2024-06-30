@@ -19,8 +19,11 @@ it's use case oriented, and was developed in the wild and on the run while testi
 lab settings to trigger alerts accross Early Availability Cortex Products.
 
 
-#Current Contributors#
-  Jon David
+# Current Contributors
+**Jon David**
+- [Github](https://www.example.com)
+- [Medium](https://www.example.com)
+- [LinkedIn](https://www.example.com)
     
 
 
