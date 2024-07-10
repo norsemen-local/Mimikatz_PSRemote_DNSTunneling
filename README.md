@@ -45,8 +45,8 @@ This is now a Bind DNS server listening for DNS traffic on port 53, exporting to
 (2) Exfiltrate using Cmdlet [Invoke-DNStunneling]https://github.com/Jonathan-D-a-v-i-d/LabTools/blob/main/Functions/Invoke-DNStunneling.ps1 on the 
 DNS server via domain admin through my remote connection. This accepts an "item" such as a file or folder as an argument, converts it to base64, 
 then chunks it up with an index before each chunk, all as a subdomain to "example.com" since we're sending dns requests through nslookup and 
-need only the syntax of a website but not for it to resolve. Finally, we give it the attacker IP as an argument to send the indexed base64 chunks 
-through a DNS "A" Type request, exfiltrated through the subdomain.
+need only the syntax of a website but not for it to resolve. Finally, we give the attacker IP as an argument to send the indexed base64 chunks 
+through a DNS "A" Type request, exfiltrated through the subdomain of @example.com.
 
 
 
