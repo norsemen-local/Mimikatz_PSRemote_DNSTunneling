@@ -26,7 +26,7 @@ Afterwards, all was done through PS Remoting via domain admin, so WinRM must be 
 to function properly. 
 
 Firstly, I used Cmdlet [Transfer-OverPSSession](https://github.com/Jonathan-D-a-v-i-d/LabTools/blob/main/Functions/Transfer-OverPSSession.ps1), 
-to transfer my zipped and obfuscated local credentials to transfer it to the Server hosting the Lab's network DNS.
+to transfer my zipped and obfuscated local credentials to the Server hosting the Lab's network DNS.
 
 Afterwards, used Cmdlet [Connect-Remotely](https://github.com/Jonathan-D-a-v-i-d/LabTools/blob/main/Functions/Connect-Remotely.ps1) to connect
 to the DNS Server via domain admin.
